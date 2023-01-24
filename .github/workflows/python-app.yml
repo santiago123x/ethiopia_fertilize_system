@@ -5,7 +5,6 @@ name: Devops Fertalizer
 
 on:
   push:
-    branches: [ "pre_deploy" ]
     tags:
     - 'v*'
   pull_request:
