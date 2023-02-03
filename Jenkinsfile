@@ -2,7 +2,6 @@ pipeline {
 
     agent {
         docker {
-            label 'docker'
             image 'ubuntu:20.04'
         }
     }
