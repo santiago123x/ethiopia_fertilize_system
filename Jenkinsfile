@@ -8,11 +8,7 @@ pipeline {
 
             steps {
 
-                sh """curl \
-                    -H "Accept: application/vnd.github+json" \
-                    -H "Authorization: Bearer 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"\
-                    -H "X-GitHub-Api-Version: 2022-11-28" \
-                    https://api.github.com/repos/OWNER/REPO/releases/latest"""
+                sh """curl -LJO $(curl -Ls https://api.github.com/repos/santiago123x/ethiopia_fertilize_system/releases/latest | jq -r '.assets[].browser_download_url')"""
 
             }
         }
