@@ -7,7 +7,7 @@ pipeline {
         stage('get release') {
 
             steps {
-                sh """wget -LJO \$(curl -Ls https://api.github.com/repos/santiago123x/ethiopia_fertilize_system/releases/latest | jq -r '.assets[0].browser_download_url')"""
+                sh """wget -i \$(curl -Ls https://api.github.com/repos/santiago123x/ethiopia_fertilize_system/releases/latest | jq -r '.assets[0].browser_download_url')"""
             }
         }
     } 
