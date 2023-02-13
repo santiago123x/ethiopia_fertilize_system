@@ -10,8 +10,9 @@ pipeline {
                 sh """ls"""
                 sh """rm -fr releaseApi"""
                 sh """rm -fr releaseApi.zip"""
+                sh """ls"""
                 sh """curl -LJO \$(curl -Ls https://api.github.com/repos/santiago123x/ethiopia_fertilize_system/releases/latest | jq -r '.assets[0].browser_download_url')"""
-                sh """unzip releaseApi.zip"""
+                sh """unzip --yes releaseApi.zip"""
                 sh """rm -fr releaseApi.zip"""
                 sh """ls"""
             }
