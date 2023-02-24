@@ -6,8 +6,8 @@ pipeline {
 
         stage('get release') {
 
-                steps {
-                    withCredentials([sshUserPrivateKey(credentialsId: "devops_fertalizer")]) {
+
+                withCredentials([sshUserPrivateKey(credentialsId: "devops_fertalizer")]) {
                     stage('ls') {
                         sh 'ls'
                     }
