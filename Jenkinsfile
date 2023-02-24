@@ -7,7 +7,7 @@ pipeline {
             steps {
                 withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'devops_fertalizer_key', \
                                                              keyFileVariable: 'SSH_KEY')]) {
-                  sh """ls"""
+                  sshCommand remote: remote, command: "ls -lrt"
                 }
             }
         }
