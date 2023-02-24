@@ -6,11 +6,11 @@ pipeline {
 
         stage('get release') {
 
-            steps {
-                sshagent(credentials: ['ldap-alliance-automate']) {
-                    sh '''
-                        ls
-                    '''
+                steps {
+                    withCredentials([sshUserPrivateKey(credentialsId: "devops_fertalizer")]) {
+                    stage('ls') {
+                        sh 'ls'
+                    }
                 }
                 //sh """ls"""
                 //sh """rm -fr src"""
