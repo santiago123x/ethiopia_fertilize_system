@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Ssh') {
             steps {
-                withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'devops_fertalizer', \
+                withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'devops_fertalizer_key', \
                                                              keyFileVariable: 'SSH_KEY')]) {
                   sh """ls"""
                 }
