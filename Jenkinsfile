@@ -3,17 +3,17 @@ pipeline {
     agent any
 
     stages {
-
-        withCredentials([sshUserPrivateKey(credentialsId: "devops_fertalizer")]) {
-            stage('ls') {
-                sh 'ls'
+        stage('Ssh') {
+            steps {
+                withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'devops_fertalizer', \
+                                                             keyFileVariable: 'SSH_KEY')]) {
+                  sh """ls"""
+                }
             }
         }
-
-        stage('get release') {
-
+        stage('Get release') {
             steps {
-
+                sh """ls"""
                 //sh """ls"""
                 //sh """rm -fr src"""
                 //sh """rm -fr releaseApi.zip"""
@@ -23,5 +23,6 @@ pipeline {
                 //sh """ls"""
             }
         }
-    } 
+    }
+ 
 }
