@@ -4,14 +4,16 @@ pipeline {
 
     stages {
 
+        withCredentials([sshUserPrivateKey(credentialsId: "devops_fertalizer")]) {
+            stage('ls') {
+                sh 'ls'
+            }
+        }
+
         stage('get release') {
 
+            steps {
 
-                withCredentials([sshUserPrivateKey(credentialsId: "devops_fertalizer")]) {
-                    stage('ls') {
-                        sh 'ls'
-                    }
-                }
                 //sh """ls"""
                 //sh """rm -fr src"""
                 //sh """rm -fr releaseApi.zip"""
