@@ -7,7 +7,8 @@ pipeline {
             steps {
                 withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'fertalizer_devops', \
                                                              keyFileVariable: 'SSH_KEY')]) {
-                  sshCommand remote: remote, command: "ls -lrt"
+                    def remote = [name: "Tesla", host: "172.30.1.117", user: "fertalizer", allowAnyHosts: true, identityFile: SSH_KEY]
+                    sshCommand remote: remote, sudo: false, command: "ls"
                 }
             }
         }
